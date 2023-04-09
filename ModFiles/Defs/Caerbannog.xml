@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseHare">
+    <defName>kathanon_BigRedButton_RabbitOfCaerbannog</defName>
+    <label>rabbit of Caerbannog</label>
+    <description>A creature so foul, so cruel that no man yet has fought with it and lived! Bones of full fifty men lie strewn about its lair. Death awaits you all with nasty, big, pointy teeth. 
+
+It's no ordinary rabbit! It's the most foul, cruel, and bad-tempered rodent you ever set eyes on! It's got a vicious streak a mile wide! It's a killer!
+
+Oh, it's just a harmless little bunny, isn't it? Well, it's always the same. I always tell them...</description>
+    <statBases>
+      <MoveSpeed>20.0</MoveSpeed>
+      <MeleeHitChance>40</MeleeHitChance>
+      <ComfyTemperatureMin>-200</ComfyTemperatureMin>
+      <ComfyTemperatureMax>200</ComfyTemperatureMax>
+    </statBases>
+    <tools>
+      <li>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>250</power>
+        <cooldownTime>1</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+      </li>
+    </tools>
+    <race>
+      <useMeatFrom>Hare</useMeatFrom>
+      <baseHealthScale>1000</baseHealthScale>
+      <foodType>CarnivoreAnimal</foodType>
+      <lifeExpectancy>1000</lifeExpectancy>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="HareBase">
+    <defName>kathanon_BigRedButton_RabbitOfCaerbannog</defName>
+    <label>rabbit of Caerbannog</label>
+    <race>kathanon_BigRedButton_RabbitOfCaerbannog</race>
+    <combatPower>999999</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Hare</texPath>
+          <drawSize>1</drawSize>
+          <color>(180,180,180)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Hare</texPath>
+          <drawSize>1.25</drawSize>
+          <color>(180,180,180)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.25</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Hare</texPath>
+          <drawSize>1.5</drawSize>
+          <color>(180,180,180)</color>
+          <shadowData>
+            <volume>(0.32, 0.35, 0.32)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

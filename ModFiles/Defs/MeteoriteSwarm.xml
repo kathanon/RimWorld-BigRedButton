@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GameConditionDef>
+    <defName>kathanon_BigRedButton_MeteoriteSwarm</defName>
+    <conditionClass>BigRedButton.GameCondition_MeteoriteSwarm</conditionClass>
+    <label>meteorite swarm</label>
+    <description>A meteorite swarm is falling over the area.</description>
+    <letterText>A meteorite swarm has started falling over the area.\n\nAnything hit will be destroyed.\n\nIt is expected to last several hours.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+    <canBePermanent>true</canBePermanent>
+  </GameConditionDef>
+
+</Defs>

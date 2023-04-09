@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ThingDef ParentName="OrbitalStrikeBase">
+    <defName>kathanon_BigRedButton_DeathRay</defName>
+    <label>death ray</label>
+    <thingClass>BigRedButton.DeathRay</thingClass>
+    <comps>
+      <li Class="CompProperties_OrbitalBeam">
+        <width>12</width>
+        <color>(255, 245, 214, 242)</color>
+        <sound>OrbitalBeam</sound>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

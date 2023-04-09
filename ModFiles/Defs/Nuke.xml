@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DamageDef ParentName="Bomb">
+    <defName>kathanon_BigRedButton_Nuke</defName>
+    <workerClass>BigRedButton.DamageWorker_Nuke</workerClass>
+    <defaultDamage>550</defaultDamage>
+    <defaultStoppingPower>2.0</defaultStoppingPower>
+    <defaultArmorPenetration>1.30</defaultArmorPenetration>
+  </DamageDef>
+
+</Defs>

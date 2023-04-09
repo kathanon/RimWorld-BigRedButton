@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GameConditionDef>
+    <defName>kathanon_BigRedButton_Flood</defName>
+    <conditionClass>BigRedButton.GameCondition_Flood</conditionClass>
+    <label>flood</label>
+    <description>A flood is affecting the area, sweeping everything away.</description>
+    <letterText>A flood is rushing into the area, threatening to flush everything away.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+    <canBePermanent>true</canBePermanent>
+  </GameConditionDef>
+
+</Defs>
