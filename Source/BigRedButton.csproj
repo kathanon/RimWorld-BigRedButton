@@ -66,7 +66,6 @@
     <Compile Include="GameCondition_Flood.cs" />
     <Compile Include="GameCondition_MeteoriteSwarm.cs" />
     <Compile Include="Patch.cs" />
-    <Compile Include="Settings.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

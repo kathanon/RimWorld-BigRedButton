@@ -11,10 +11,13 @@ namespace BigRedButton;
 [StaticConstructorOnStartup]
 public static class Button {
     private static readonly Action[] actions = {
-        Random,   BossButton,    Harepocalypse,   RabbitOfCaerbannog,     Nuke,   DeathRay,    MeteoriteSwarm,    Flood
+        Random,   BossButton,    Harepocalypse,   RabbitOfCaerbannog,     Nuke,   DeathRay,    MeteoriteSwarm,    Flood,
     };
     private static readonly string[] names = {
-        "Random", "Boss Button", "Harepocalypse", "Rabbit of Caerbannog", "Nuke", "Death Ray", "Meteorite Swarm", "Flood"
+        "Random", "Boss Button", "Harepocalypse", "Rabbit of Caerbannog", "Nuke", "Death Ray", "Meteorite Swarm", "Flood",
+    };
+    private static readonly bool[] active = {
+        true, true, true, true, true, true, true, 
     };
     private static int selected = Main.Instance.Settings.Selected;
     private static float lastPress = 0f;
@@ -75,8 +78,14 @@ public static class Button {
         => Find.CurrentMap.IsPlayerHome ? Find.CurrentMap : Find.RandomPlayerHomeMap;
 
 
-    private static void Random() 
-        => actions[Rand.RangeInclusive(1, actions.Length - 1)]();
+    private static void Random() {
+        int n = active.Count(x => x);
+        int i = Rand.RangeInclusive(1, n);
+        for (int j = 0; j < i; j++) {
+            if (!active[j]) i++;
+        }
+        actions[i]();
+    }
 
     private static void BossButton() 
         => BossButton();
@@ -171,16 +180,15 @@ public static class Button {
         public int Selected => selected;
 
         public void DoGUI(Rect rect) {
-            var r = rect;
+            var row = rect.TopPartPixels(28f);
             Text.Anchor = TextAnchor.MiddleLeft;
             string label = "Event:";
-            r.height = 28f;
-            r.width = Text.CalcSize(label).x;
+            var r = row.LeftPartPixels(Text.CalcSize(label).x);
             Widgets.Label(r, label);
-            GenUI.ResetLabelAlign();
 
             r.x += r.width + 8f;
-            r.width = names.Max(x => Text.CalcSize(x).x) + 22f;
+            float namesWidth = names.Max(x => Text.CalcSize(x).x);
+            r.width = namesWidth + 22f;
             if (Widgets.ButtonText(r, names[selected])) {
                 Find.WindowStack.Add(new FloatMenu(
                     names.Select(
@@ -189,10 +197,25 @@ public static class Button {
                             () => selected = i))
                     .ToList()));
             }
+
+            if (selected == 0) {
+                row.y += row.height + 16f;
+                Widgets.Label(row, "Included events:");
+                row.x += 16f;
+                row.width = namesWidth + 32f;
+                for (int i = 1; i < names.Length; i++) {
+                    row.y += row.height + 4f;
+                    Widgets.CheckboxLabeled(row, names[i], ref active[i - 1]);
+                }
+            }
+            GenUI.ResetLabelAlign();
         }
 
         public override void ExposeData() {
             Scribe_Values.Look(ref selected, "event", 0);
+            for (int i = 0; i < active.Length; i++) {
+                Scribe_Values.Look(ref active[i], "active_" + i, true);
+            }
         }
     }
 }
